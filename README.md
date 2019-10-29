@@ -7,7 +7,7 @@ This project is currently under development and does not yet have a full release
 ## Installation
 #### From Source
 * Clone from this repository
-* Run `pip install -r requirements.txt' to install the required packages
+* Run `pip install -r requirements.txt` to install the required packages
 
 ## The Road Ahead
 - [x] Create basic client w/Fullscreen screenshots
