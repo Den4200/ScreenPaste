@@ -1,8 +1,8 @@
-import wx
+from wx import App
 from gui import ScreenShot
 
 def main():
-    app = wx.App()
+    app = App()
     ScreenShot(None, 'Screen Paste')
     app.MainLoop()
 

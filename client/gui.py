@@ -42,4 +42,5 @@ class ScreenShot(wx.Frame):
 
         print('Screenshot taken!')
         
-        Client().send_img()
+        c = Client()
+        c.send_img()

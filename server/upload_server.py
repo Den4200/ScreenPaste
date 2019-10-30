@@ -17,8 +17,7 @@ class Server:
                 log('NEW CONNECTION', addr)
 
                 while True:
-                    SIZE = 81920000
-                    data = conn.recv(SIZE)
+                    data = conn.recv(81920000)
 
                     if not data:
                         break
