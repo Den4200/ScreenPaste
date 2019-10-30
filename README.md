@@ -10,7 +10,7 @@ This project is currently under development and does not yet have a full release
 * Run `pip install -r requirements.txt' to install the required packages
 
 ## The Road Ahead
-- [x] Create basic client w/Fullscreen screenshots
-- [ ] Create basic server & update client to upload screenshots & recieve links
+- [x] Create basic client w/fullscreen screenshots
+- [ ] Create basic server & update client to upload screenshots & recieve links (WIP)
 - [ ] Region screenshots
 - [ ] Possibly drawing on screenshots
