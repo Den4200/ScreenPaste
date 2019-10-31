@@ -8,9 +8,13 @@ app = Flask(__name__)
 IMGS= 'static'
 app.config['UPLOAD_FOLDER'] = IMGS
 
-@app.route('/')
-def home():
-    return f'<img src="{ os.path.join(app.config["UPLOAD_FOLDER"], "screenshot.png") }" alt="screenshot">'
+@app.route('/<img_name>')
+def show_screenshot(img_name):
+    return f'<img src="{os.path.join(app.config["UPLOAD_FOLDER"], img_name)}" alt="screenshot">'
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return 'screenshot not found', 404
 
 def main():
     s = Server()

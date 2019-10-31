@@ -1,5 +1,6 @@
 import os
 import wx
+from wx.lib.agw.hyperlink import HyperLinkCtrl
 import pyautogui
 
 from upload import Client
@@ -11,7 +12,7 @@ class ScreenShot(wx.Frame):
             parent=parent, 
             title=title
             )
-            
+
         self.widgets()
         self.Show()
 
@@ -26,7 +27,7 @@ class ScreenShot(wx.Frame):
             btn = wx.Button(panel, label=label)
             btn.Bind(wx.EVT_BUTTON, func)
             sizer.Add(btn, 0, wx.ALL | wx.CENTER, 5)
-        
+
         panel.SetSizer(sizer)
 
     @staticmethod

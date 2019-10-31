@@ -1,3 +1,4 @@
+import threading
 from wx import App
 from gui import ScreenShot
 
