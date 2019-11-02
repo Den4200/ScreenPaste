@@ -10,7 +10,7 @@ app.config['UPLOAD_FOLDER'] = IMGS
 
 @app.route('/<img_name>')
 def show_screenshot(img_name):
-    return f'<img src="{os.path.join(app.config["UPLOAD_FOLDER"], img_name)}" alt="screenshot">'
+    return f'<img src="{os.path.join(app.config["UPLOAD_FOLDER"], img_name)}" alt="screenshot not found">'
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -18,7 +18,7 @@ def page_not_found(e):
 
 def main():
     s = Server()
-
+    
     u_s = threading.Thread(target=s.main)
     a = threading.Thread(target=app.run)
 

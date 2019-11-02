@@ -11,6 +11,7 @@ This project is currently under development and does not yet have a full release
 
 ## The Road Ahead
 - [x] Create basic client w/fullscreen screenshots
-- [ ] Create basic server & update client to upload screenshots & recieve links (WIP)
+- [x] Create basic server & update client to upload screenshots & recieve links (WIP)
+- [ ] Create random links
 - [ ] Region screenshots
 - [ ] Possibly drawing on screenshots

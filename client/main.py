@@ -1,10 +1,7 @@
-import threading
-from wx import App
-from gui import ScreenShot
+import gui
 
 def main():
     app = App()
-    ScreenShot(None, 'Screen Paste')
     app.MainLoop()
 
 if __name__ == "__main__":

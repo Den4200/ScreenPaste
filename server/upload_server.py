@@ -35,7 +35,7 @@ class Server:
 
                     b = b''
                     img_name = f'screenshot_{self._readImgNum()}.png'
-                    conn.send(bytes(f'127.0.0.1:5000/{img_name}/', 'utf8'))
+                    conn.send(bytes(f'http://127.0.0.1:5000/static/{img_name}', 'utf8'))
 
                     while data:
                         log('INFO', f'Packet Size: {len(data)}')

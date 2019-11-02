@@ -1,5 +1,6 @@
 import os
 import socket
+from logger import log
 
 class Client:
 
@@ -10,10 +11,20 @@ class Client:
         self.link = link
 
     def send_img(self):
-        with open(os.path.join('screenshots', 'screenshot.png'), 'rb') as f:
-            self.sock.sendfile(f, offset=0, count=None)
+        try:
+            with open(os.path.join('screenshots', 'screenshot.png'), 'rb') as f:
+                self.sock.sendfile(f, offset=0, count=None)
 
-        self.link = self.sock.recv(4096).decode('utf8')
+            log('INFO', 'Image sent successfully to server')
 
-        print('Image sent successfully to server')
-        print(self.link)
+            self.link = self.sock.recv(4096).decode('utf8')
+            log('LINK', self.link)
+            
+            self.sock.close()
+
+        except Exception as e:
+            log('ERROR', e)
+
+    def returnLink(self):
+        return self.link
+

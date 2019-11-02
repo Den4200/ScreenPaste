@@ -1,37 +1,41 @@
 import os
+import webbrowser
+
 import wx
-from wx.lib.agw.hyperlink import HyperLinkCtrl
 import pyautogui
+import tkinter as tk
 
 from upload import Client
+from logger import log
 
-class ScreenShot(wx.Frame):
+class Screenshot:
 
-    def __init__(self, parent, title):
-        super().__init__(
-            parent=parent, 
-            title=title
-            )
+    def __init__(self, title='ScreenPaste'):
+        self.root = tk.Tk()
+        self.root.title(title)
 
-        self.widgets()
-        self.Show()
+        self.canvas = tk.Canvas(self.root, width=40, height=60)
+        self.canvas.pack()
 
-    def widgets(self):
-        panel = wx.Panel(self)
-        sizer = wx.BoxSizer(wx.VERTICAL)
-        btns = {
+        self.btns = {
             'ScreenShot': self.ss,
-            }
+        }
 
-        for label, func in btns.items():
-            btn = wx.Button(panel, label=label)
-            btn.Bind(wx.EVT_BUTTON, func)
-            sizer.Add(btn, 0, wx.ALL | wx.CENTER, 5)
+        self.init_btns()
+        self.root.mainloop()
 
-        panel.SetSizer(sizer)
+    def init_btns(self):
+        for text, command in self.btns.items():
+            btn = tk.Button(
+                self.canvas, 
+                text=text, 
+                width=25, 
+                command=command
+            )
+            btn.pack()
 
-    @staticmethod
     def ss(self):
+        app = wx.App()
         screen = wx.ScreenDC()
         size = pyautogui.size()
         bmp = wx.Bitmap(size[0], size[1])
@@ -40,8 +44,21 @@ class ScreenShot(wx.Frame):
         mem.Blit(0, 0, size[0], size[1], screen, 0, 0)
         del mem
         bmp.SaveFile(os.path.join('screenshots', 'screenshot.png'), wx.BITMAP_TYPE_PNG)
-
-        print('Screenshot taken!')
         
-        c = Client()
-        c.send_img()
+        log('INFO', 'Screenshot taken')
+
+        client = Client()
+        client.send_img()
+
+        label = tk.Label(self.canvas, text=client.returnLink(), fg="blue", cursor="hand2")
+        label.pack()
+        label.bind("<Button-1>", lambda e: self.callback(client.returnLink()))
+        
+        app.MainLoop()
+
+    def callback(self, link):
+        webbrowser.open_new_tab(link)
+
+# Importing this class from main script won't work for some reason..
+# So I'll just call the class from here
+Screenshot()
