@@ -1,4 +1,6 @@
 import os
+import time
+import random
 import socket
 from logger import log
 
@@ -10,14 +12,36 @@ class Server:
         self.sock.bind((host, port))
         self.sock.listen(3)
 
-    def _readImgNum(self):
-        with open('img_num.txt', 'r') as f:
-            return int(f.read())
+        self.key_length = 10
+        self.key_file = 'keys.csv'
 
-    def _updateImgNum(self):
-        prev_num = self._readImgNum()
-        with open('img_num.txt', 'w') as f:
-            f.write(str(prev_num + 1))
+    def _genRandKey(self):
+        lower_keys = [random.randrange(97, 123, 1) for _ in range(self.key_length)]
+        upper_keys = [random.randrange(65, 91, 1) for _ in range(self.key_length)]
+        keys = [chr(list(zip(lower_keys, upper_keys))[y][x]) for y in range(self.key_length) for x in range(2)]
+        key = ''.join(k for k in keys)
+
+        return key
+
+    def _randKey(self):
+        key = self._genRandKey()
+
+        with open(self.key_file, 'r') as f:
+            keys = f.readlines()
+
+        run = True
+
+        for k in keys:
+            if k.split(',')[1][:-1] == key:
+                self._randKey()
+                run = False
+                break
+            
+        if run:
+            with open(self.key_file, 'a') as f:
+                f.write(f'{time.ctime()},{key}\n')
+
+            return key
 
     def main(self):
         while True:
@@ -31,10 +55,9 @@ class Server:
                     break
                 
                 else:
-                    self._updateImgNum()
 
                     b = b''
-                    img_name = f'screenshot_{self._readImgNum()}.png'
+                    img_name = f'screenshot_{self._randKey()}.png'
                     conn.send(bytes(f'http://127.0.0.1:5000/static/{img_name}', 'utf8'))
 
                     while data:
@@ -46,3 +69,7 @@ class Server:
                         f.write(b)
 
                     log('NEW IMAGE', img_name)
+
+if __name__ == "__main__":
+    s = Server()
+    print(s._randKey())

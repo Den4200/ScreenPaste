@@ -1,0 +1,17 @@
+Mon Nov  4 23:51:31 2019 [INFO] Screenshot taken
+Mon Nov  4 23:51:31 2019 [INFO] Image sent successfully to server
+Mon Nov  4 23:51:31 2019 [LINK] http://127.0.0.1:5000/static/screenshot_wZlDvMrOkTcChGcOtQwL.png
+Mon Nov  4 23:51:47 2019 [INFO] Screenshot taken
+Mon Nov  4 23:51:47 2019 [INFO] Image sent successfully to server
+Mon Nov  4 23:51:47 2019 [LINK] http://127.0.0.1:5000/static/screenshot_aOuXyAzApHxAkXpIqEpR.png
+Mon Nov  4 23:51:54 2019 [INFO] Screenshot taken
+Mon Nov  4 23:51:54 2019 [INFO] Image sent successfully to server
+Mon Nov  4 23:51:54 2019 [LINK] http://127.0.0.1:5000/static/screenshot_fBiPcIcBnGqZlVhJjDqL.png
+Tue Nov  5 00:03:57 2019 [INFO] Screenshot taken
+Tue Nov  5 00:03:57 2019 [INFO] Image sent successfully to server
+Tue Nov  5 00:04:54 2019 [INFO] Screenshot taken
+Tue Nov  5 00:04:54 2019 [INFO] Image sent successfully to server
+Tue Nov  5 00:04:54 2019 [LINK] http://127.0.0.1:5000/static/screenshot_kWyHmUtJeNsLrEsOaEeQ.png
+Tue Nov  5 00:05:08 2019 [INFO] Screenshot taken
+Tue Nov  5 00:05:08 2019 [INFO] Image sent successfully to server
+Tue Nov  5 00:05:08 2019 [LINK] http://127.0.0.1:5000/static/screenshot_xFfDdToYgPpGtIyOeYaZ.png

@@ -1,8 +1,4 @@
-import gui
-
-def main():
-    app = App()
-    app.MainLoop()
+# ScreenPaste
 
 if __name__ == "__main__":
-    main()
+    import gui
