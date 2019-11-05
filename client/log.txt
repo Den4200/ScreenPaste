@@ -1,0 +1,12 @@
+Tue Nov  5 13:57:21 2019 [INFO] Screenshot taken
+Tue Nov  5 13:57:21 2019 [INFO] Image sent successfully to server
+Tue Nov  5 13:57:21 2019 [LINK] http://screenpaste.sytes.net:5000/static/screenshot_MiAxesQwkNmXNqLTh8dJ.png
+Tue Nov  5 13:57:58 2019 [INFO] Screenshot taken
+Tue Nov  5 13:57:58 2019 [INFO] Image sent successfully to server
+Tue Nov  5 13:57:58 2019 [LINK] http://screenpaste.sytes.net:5000/static/screenshot_xtSSQIWv5druFvm4HuxU.png
+Tue Nov  5 13:58:03 2019 [INFO] Screenshot taken
+Tue Nov  5 13:58:04 2019 [INFO] Image sent successfully to server
+Tue Nov  5 13:58:04 2019 [LINK] http://screenpaste.sytes.net:5000/static/screenshot_zhNs2nxY7vK3eTTAoTvt.png
+Tue Nov  5 17:08:41 2019 [INFO] Screenshot taken
+Tue Nov  5 17:08:42 2019 [INFO] Image sent successfully to server
+Tue Nov  5 17:08:42 2019 [LINK] http://screenpaste.sytes.net:5000/static/screenshot_qeQvsJj4BMFRAg1G8Wbr.png

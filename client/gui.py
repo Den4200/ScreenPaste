@@ -59,6 +59,3 @@ class Screenshot:
     def callback(self, link):
         webbrowser.open_new_tab(link)
 
-# Importing this class from main script won't work for some reason..
-# So I'll just call the class from here
-Screenshot()
