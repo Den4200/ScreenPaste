@@ -20,7 +20,7 @@ def main():
     s = Server()
     
     u_s = threading.Thread(target=s.main)
-    a = threading.Thread(target=app.run)
+    a = threading.Thread(target=app.run, kwargs={'host': '0.0.0.0', 'port': 5000})
 
     u_s.start()
     a.start()

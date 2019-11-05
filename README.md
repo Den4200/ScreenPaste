@@ -2,7 +2,7 @@
 A program to quickly screenshot, upload, and recieve a link to that screenshot.
 
 ## Information
-This project is currently under development and does not yet have a full release. However, beta versions are out for testing.
+This project is currently online and working. You may use the client to connect to our online servers.
 
 ## Installation
 #### From Source
