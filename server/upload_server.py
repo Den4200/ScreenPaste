@@ -6,16 +6,16 @@ import socket
 import multiprocessing
 from logger import log
 
-class Server:
+class Key:
 
-    def __init__(self, host='0.0.0.0', port=5555):
-        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-        self.sock.bind((host, port))
-        self.sock.listen(3)
-
+    def __init__(self):
         self.key_length = 20
         self.key_file = 'keys.csv'
+
+        self.key = self._randKey()
+
+    def __str__(self):
+        return self.key
 
     def _genRandKey(self):
         chars = string.ascii_letters + string.digits
@@ -50,30 +50,40 @@ class Server:
 
             return key
 
+class Server:
+
+    def __init__(self, host='0.0.0.0', port=5555):
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        self.sock.bind((host, port))
+        self.sock.listen(3)
+
     def connection(self, conn, addr):
         while True:
-            data = conn.recv(81920000)
+            try:
+                data = conn.recv(81920000)
 
-            if not data:
-                break
-                
-            else:
+                if not data:
+                    break
+                    
+                else:
 
-                b = b''
-                img_name = f'screenshot_{self._randKey()}.png'
-                conn.send(bytes(f'http://screenpaste.sytes.net:5000/static/{img_name}', 'utf8'))
+                    b = b''
+                    img_name = f'screenshot_{Key()}.png'
+                    conn.send(bytes(f'http://screenpaste.sytes.net:5000/static/{img_name}', 'utf8'))
 
-                while data:
-                    log('INFO', f'Packet Size: {len(data)}')
-                    b += data
-                    data = conn.recv(81920000)
+                    while data:
+                        log('INFO', f'Packet Size: {len(data)}')
+                        b += data
+                        data = conn.recv(81920000)
 
-                with open(os.path.join('static', img_name), 'wb') as f:
-                    f.write(b)
+                    with open(os.path.join('static', img_name), 'wb') as f:
+                        f.write(b)
 
-                log('NEW IMAGE', img_name)
+                    log('NEW IMAGE', img_name)
 
-
+            except Exception as e:
+                log('ERROR', e)
 
     def main(self):
         while True:
