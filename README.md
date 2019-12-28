@@ -1,9 +1,6 @@
 # Screen Paste
 A program to quickly screenshot, upload, and recieve a link to that screenshot.
 
-## Information
-This project is currently online and working. You may use the client to connect to our online servers.
-
 ## Installation
 #### From Source
 * Clone from this repository
